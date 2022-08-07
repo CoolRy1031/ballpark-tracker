@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<section class="logo-container">
+  <div class="stadium-container">
+    <img src="{% static 'images/' %}" alt="The Ballpark Tracker" />
+  </div>
+  <img 
+    src="{% static 'images/' %}" 
+    alt="Text reads:Ballpark Tracker"
+  />
+</section>
+
+{% endblock %}
