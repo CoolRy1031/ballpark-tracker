@@ -1,5 +1,5 @@
 from django.db import models
-from django.forms import CharField
+from django.urls import reverse
 
 # Create your models here.
 class Stadium(models.Model):
@@ -9,3 +9,7 @@ class Stadium(models.Model):
 
   def __str__(self):
     return self.name
+
+  def get_absolute_url(self):
+      return reverse("stadiums_detail", kwargs={"stadium_id": self.id})
+  

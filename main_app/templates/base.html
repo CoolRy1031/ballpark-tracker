@@ -28,8 +28,9 @@
     </div>
     <nav>
       <ul>
-        <li><a href="/about">About</a></li>
-        <li><a href="/stadiums">Stadiums</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'stadiums_index' %}">Stadiums</a></li>
+        <li><a href="{% url 'stadiums_create' %}">Add Stadiums</a></li>
       </ul>
     </nav>
   </header>

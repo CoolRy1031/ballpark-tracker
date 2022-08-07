@@ -22,6 +22,10 @@
     <h1>{{ stadium.name }}</h1>
     <p>This Stadium is located in {{ stadium.location }}</p>
     <p>{{ stadium.description }}</p>
+    <div class="stadium-actions">
+      <a href="{% url 'stadiums_update' stadium.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'stadiums_delete' stadium.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 
