@@ -9,5 +9,6 @@ urlpatterns = [
   path('stadiums/create/', views.StadiumCreate.as_view(), name='stadiums_create'),
   path('stadiums/<int:pk>/update/', views.StadiumUpdate.as_view(), name='stadiums_update'),
   path('stadiums/<int:pk>/delete/', views.StadiumDelete.as_view(), name='stadiums_delete'),
+  path('stadiums/<int:stadium_id>/add_concession/', views.add_concession, name='add_concession'),
 
 ]

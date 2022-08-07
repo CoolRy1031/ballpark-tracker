@@ -3,10 +3,20 @@
 
 {% block head %}
 <link 
+  href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" 
+  rel="stylesheet" 
+/>
+<link rel="stylesheet" href="{% static 'css/mcdp.css' %}">
+<script 
+  src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
+>
+</script>
+<link 
   rel="stylesheet" 
   type="text/css" 
   href="{% static 'css/stadiums/stadium-detail.css' %}"
 />
+<script defer src="{% static 'js/stadium-detail.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -28,5 +38,47 @@
     </div>
   </div>
 </section>
+<div class="concessions-container">
+  <section class="concessions">
+    <div class="subsection-title">
+      <h2>Concessions</h2>
+      <img 
+        src="{% static 'images/' %}" 
+        alt="A beer, soda or hotdog"
+      />
+    </div>
+    <h3>Add a Concession</h3>
+    <form
+      action="{% url 'add_concession' stadium.id %}"
+      method="post" 
+      class="subsection-content"
+    >
+      {% csrf_token %}
+      {{ concession_form.as_p }}
+      <button type="submit" class="btn submit">Add Concession</button>
+    </form>
+    <h3>Past Concessions</h3>
+    {% if stadium.concession_set.all.count %}
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Snack</th></tr>
+      </thead>
+      <tbody>
+        {% for concession in stadium.concession_set.all %}
+          <tr>
+            <td>{{ concession.date }}</td>
+            <td>{{ concession.get_snack_display }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="subsection-content">
+      <p>{{stadium.name}} Your Concessions are empty. Quick grab a beer and log it!</p>
+    </div>
+    {% endif %}
+  </section>
+</div>
 
 {% endblock %}
+

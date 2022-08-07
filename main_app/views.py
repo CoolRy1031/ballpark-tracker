@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Stadium
+from .forms import ConcessionForm
 
 
 # Create your views here.
@@ -17,7 +18,8 @@ def stadiums_index(request):
 
 def stadiums_detail(request, stadium_id):
   stadium = Stadium.objects.get(id=stadium_id)
-  return render(request, 'stadiums/detail.html', { 'stadium':stadium })
+  concession_form = ConcessionForm()
+  return render(request, 'stadiums/detail.html', { 'stadium':stadium, 'concession_form': concession_form })
 
 class StadiumCreate(CreateView):
   model = Stadium
@@ -31,3 +33,11 @@ class StadiumUpdate(UpdateView):
 class StadiumDelete(DeleteView):
   model = Stadium
   success_url = '/stadiums/'
+
+def add_concession(request, stadium_id):
+  form = ConcessionForm(request.POST)
+  if form.is_valid():
+    new_concession= form.save(commit=False)
+    new_concession.stadium_id = stadium_id
+    new_concession.save()
+  return redirect('stadiums_detail', stadium_id=stadium_id)
