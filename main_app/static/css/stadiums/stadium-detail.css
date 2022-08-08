@@ -31,10 +31,15 @@
   align-items: center;
 }
 
+.concessions{
+    background-image: url(/static/images/oak.jpg);
+}
+
 .subsection-title {
   display: flex;
   align-items: center;
   margin-bottom: 12px;
+  justify-content: center;
 }
 
 .subsection-content {
@@ -177,10 +182,16 @@
   .concessions-container > section {
     width: 45%;
   }
+  .concessions{
+    background-image: url(/static/images/oak.jpg);
+  }
 }
 
 @media only screen and (min-width: 1024px) {
   .concessions-container {
     padding: 0 40px;
+  }
+  .concessions{
+    background-image: url(/static/images/oak.jpg);
   }
 }

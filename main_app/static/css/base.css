@@ -30,8 +30,7 @@ body {
     'Helvetica Neue', sans-serif;
   min-height: 100vh;
   --nav-bg: rgba(16, 5, 77, 0.7);
-  --nav-bg-ff: rgba(228, 50, 5, 0.9);
-  --borders: blue solid 2px;
+  --borders: black 3px;
   --text-color: black;
   --link-hover-color: rgb(16, 56, 158);
   --button-bg: rgb(245, 245, 245);
@@ -40,7 +39,7 @@ body {
   --warn: rgb(255, 102, 0);
   --danger: rgb(220, 20, 30);
   --secondary: rgb(57, 57, 57);
-  --card-box-shadow: 5px 5px 6px -1px #AAA;
+  --card-box-shadow: 6px 6px 8px -1px #AAA;
   --font-xtreme: 4.2rem;
   --font-xxl: 3.6rem;
   --font-xl: 2.4rem;
@@ -50,7 +49,6 @@ body {
 }
 
 header {
-  width: 100%;
   background: var(--nav-bg-ff);
   border-bottom: var(--borders);
 }
@@ -228,7 +226,6 @@ nav li {
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     header {
-      background: var(--nav-bg);
       -webkit-backdrop-filter: blur(3px);
       backdrop-filter: blur(3px);
     }
@@ -260,8 +257,6 @@ nav li {
   nav{
     margin: 0;
     background: var(--nav-bg-ff);
-    border: var(--borders);
-    border-radius: 18px;
   }
 
   nav {
@@ -272,12 +267,6 @@ nav li {
     header {
       -webkit-backdrop-filter: none;
       backdrop-filter: none;
-    }
-
-    nav{
-      background:rgba(228, 50, 5, 0.9);
-      -webkit-backdrop-filter: blur(3px);
-      backdrop-filter: blur(3px);
     }
   }
 }
