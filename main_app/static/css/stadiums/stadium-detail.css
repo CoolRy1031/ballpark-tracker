@@ -136,6 +136,9 @@
 .concessions td {
   padding: 8px 5px;
   font-size: var(--font-reg);
+  background-image: url(/static/images/oak.jpg);
+  background-attachment: fixed;
+  box-shadow: 4px 4px 4px -1px;
 }
 
 .concessions th {
